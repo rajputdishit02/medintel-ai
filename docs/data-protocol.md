@@ -44,4 +44,4 @@ Keep population inference distinct from predictive evaluation. Explicitly docume
 - Preserve immutable raw files locally and make all cleaning reproducible.
 - Test duplicate-key rejection, missingness recoding, outcome unknown handling, and join row preservation using synthetic fixtures.
 
-These are V0.2 acceptance criteria; the V0.1 catalogue does not implement ingestion.
+These V0.2 acceptance criteria are implemented. The aggregate metadata and reproducibility benchmark are committed; participant-level files remain local and ignored by Git.

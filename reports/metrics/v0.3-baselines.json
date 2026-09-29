@@ -1,0 +1,58 @@
+{
+  "target": "cvd_history_positive",
+  "interpretation": "prevalent self-reported history; not future risk",
+  "seed": 417,
+  "data_sha256": "42056fd46f87d08afa2dbc006381c215415b09e93ff8f452bf7b842320f4845e",
+  "split_sha256": "29a63050324165310c5682d97d10997c3f120fd755f2198476c7a7992a5b4f9e",
+  "local_split_path": "data\\processed\\v0.3-model-split.csv",
+  "sample_n": 7764,
+  "positive_n": 982,
+  "negative_n": 6782,
+  "train_n": 6211,
+  "test_n": 1553,
+  "features": [
+    "RIDAGEYR",
+    "INDFMPIR",
+    "mean_systolic_bp",
+    "mean_diastolic_bp",
+    "BMXBMI",
+    "BMXWAIST",
+    "LBXTC",
+    "LBDHDD",
+    "LBXGH",
+    "RIAGENDR",
+    "RIDRETH3",
+    "ever_smoked"
+  ],
+  "excluded_for_unknown_target": 45,
+  "evaluation_weighting": "unweighted",
+  "python_version": "3.12.14",
+  "pandas_version": "3.0.1",
+  "scikit_learn_version": "1.9.1",
+  "results": {
+    "dummy_prior": {
+      "roc_auc": 0.5,
+      "average_precision": 0.1262073406310367,
+      "brier_score": 0.11027916499123425,
+      "log_loss": 0.3791134228125699,
+      "sensitivity_at_0_5": 0.0,
+      "specificity_at_0_5": 1.0,
+      "true_negative": 1357,
+      "false_positive": 0,
+      "false_negative": 196,
+      "true_positive": 0
+    },
+    "logistic_regression": {
+      "roc_auc": 0.7929030123471644,
+      "average_precision": 0.3911059908138934,
+      "brier_score": 0.09292055871662913,
+      "log_loss": 0.31684625878802597,
+      "sensitivity_at_0_5": 0.14285714285714285,
+      "specificity_at_0_5": 0.9859985261606485,
+      "true_negative": 1338,
+      "false_positive": 19,
+      "false_negative": 168,
+      "true_positive": 28
+    }
+  }
+}

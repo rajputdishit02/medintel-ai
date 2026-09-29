@@ -3,7 +3,7 @@
 
 A research portfolio project exploring cardiovascular health through real clinical survey data, transparent statistical analysis, and reproducible machine learning.
 
-**Status: V0.2 complete.** The repository includes verified acquisition, a checksum manifest, reproducible adult-cohort construction, and survey-aware cardiovascular risk-factor estimates. Predictive models and applications remain planned; no model-performance results are claimed.
+**Status: V0.3 baseline complete.** The repository includes verified acquisition, survey-aware cardiovascular estimates, a frozen modelling contract, and dummy/logistic baselines for reported CVD history. Advanced model comparison and applications remain planned.
 
 ## Research direction
 
@@ -36,6 +36,7 @@ python -m medintel acquire --data-dir data
 python -m medintel verify-data --data-dir data
 python -m medintel build-cohort --data-dir data
 python -m medintel eda --data-dir data
+python -m medintel baseline --data-dir data
 python -m unittest discover -s tests -v
 ```
 
@@ -65,13 +66,19 @@ The complete-measurement analysis contains 5,249 adults after excluding pregnant
 
 See the [EDA report](reports/v0.2-eda.md) and [complete prevalence table](reports/tables/cvd-risk-factor-prevalence.csv). This is a reproducibility benchmark using cross-sectional population estimates, not a diagnostic or predictive result.
 
+## V0.3 baseline result
+
+On a fixed held-out test partition, logistic regression reached ROC AUC 0.793 and average precision 0.391, compared with 0.500 and 0.126 for the class-prior baseline. Its sensitivity at the unevaluated 0.5 threshold was only 0.143. No clinical operating threshold is claimed.
+
+Read the [baseline report](reports/v0.3-baseline.md) and [modelling protocol](docs/modeling-protocol.md). The outcome is prevalent self-reported history, so these results do not demonstrate prediction of future cardiovascular events.
+
 ## Roadmap
 
 | Milestone | Deliverable | State |
 | --- | --- | --- |
 | V0.1 | Repository, source catalogue, protocol, foundation checks | Complete |
 | V0.2 | Verified ingestion, cohort flow, EDA and statistics | Complete |
-| V0.3 | Target definition, leakage audit, baseline ML | Planned |
+| V0.3 | Target definition, leakage audit, baseline ML | Complete |
 | V0.4 | Advanced model comparison and tuning | Planned |
 | V0.5 | Calibration, thresholds, SHAP and subgroup analysis | Planned |
 | V0.6 | FastAPI inference contract | Planned |
