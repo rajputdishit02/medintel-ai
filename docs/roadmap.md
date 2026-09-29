@@ -3,7 +3,7 @@
 Build one reviewable milestone at a time. No empty API, UI, RAG, or model implementations are included in V0.1.
 
 1. **V0.1 — foundation:** installable package, official source catalogue, protocol, README, offline checks, and meaningful Git history.
-2. **V0.2 — data and statistics:** implement acquisition/provenance, validate XPT files, construct the cohort, publish the variable dictionary, cohort flow, missingness audit, and survey-aware descriptive analysis.
+2. **V0.2 — data and statistics (in progress):** acquisition/provenance, XPT validation, adult cohort, variable dictionary, join audit, and missingness counts are implemented. Survey-aware descriptive analysis and a reviewed cohort flow remain.
 3. **V0.3 — baseline:** freeze target and leakage decisions; establish dummy and logistic baselines. Separate training, tuning, and held-out evaluation. Fit imputation and preprocessing only within training folds. Record seeds, package versions, data hashes, and split identifiers.
 4. **V0.4 — comparisons:** add a justified tree/boosting model, consistent search budgets, discrimination metrics, uncertainty, and an experiment table. Keep the held-out set untouched by tuning.
 5. **V0.5 — interpretation:** assess Brier score, calibration curves, threshold trade-offs, and subgroup behaviour. Fit calibration using training/validation data only. Explain SHAP's dependence on the model and background population; avoid causal claims.
@@ -13,4 +13,4 @@ Build one reviewable milestone at a time. No empty API, UI, RAG, or model implem
 9. **V0.9 — operations:** integration tests, Docker, reproducible environments, and deployment checks. Unit tests grow with each earlier milestone.
 10. **V1.0 — release:** publish reproducible findings, a model card, a data card, setup instructions, and a demonstrable portfolio walkthrough.
 
-Next commit after the foundation: `feat(data): acquire and validate the NHANES source snapshot`. Do not claim that milestone until its acceptance criteria in the data protocol are met.
+Next work: review the cohort flow and implement design-aware descriptive estimates before marking V0.2 complete.

@@ -1,0 +1,75 @@
+{
+  "demographics_rows": 11933,
+  "adult_rows": 7809,
+  "joins": {
+    "BPXO_L": {
+      "source_rows": 7801,
+      "adult_rows_matched": 6064,
+      "adult_rows_unmatched": 1745
+    },
+    "BMX_L": {
+      "source_rows": 8860,
+      "adult_rows_matched": 6064,
+      "adult_rows_unmatched": 1745
+    },
+    "TCHOL_L": {
+      "source_rows": 8068,
+      "adult_rows_matched": 6064,
+      "adult_rows_unmatched": 1745
+    },
+    "HDL_L": {
+      "source_rows": 8068,
+      "adult_rows_matched": 6064,
+      "adult_rows_unmatched": 1745
+    },
+    "GHB_L": {
+      "source_rows": 7199,
+      "adult_rows_matched": 6064,
+      "adult_rows_unmatched": 1745
+    },
+    "BPQ_L": {
+      "source_rows": 8501,
+      "adult_rows_matched": 7809,
+      "adult_rows_unmatched": 0
+    },
+    "MCQ_L": {
+      "source_rows": 11744,
+      "adult_rows_matched": 7809,
+      "adult_rows_unmatched": 0
+    },
+    "SMQ_L": {
+      "source_rows": 9015,
+      "adult_rows_matched": 7809,
+      "adult_rows_unmatched": 0
+    }
+  },
+  "outcome_counts": {
+    "negative": 6782,
+    "positive": 982,
+    "unknown": 45
+  },
+  "missing_counts": {
+    "SEQN": 0,
+    "RIDAGEYR": 0,
+    "RIAGENDR": 0,
+    "RIDRETH3": 0,
+    "WTMEC2YR": 0,
+    "SDMVSTRA": 0,
+    "SDMVPSU": 0,
+    "INDFMPIR": 1320,
+    "mean_systolic_bp": 1946,
+    "mean_diastolic_bp": 1946,
+    "BMXBMI": 1839,
+    "BMXWAIST": 2047,
+    "LBXTC": 2311,
+    "LBDHDD": 2311,
+    "LBXGH": 2042,
+    "BPQ020": 2,
+    "BPQ150": 4865,
+    "BPQ080": 2,
+    "BPQ101D": 2,
+    "SMQ020": 15,
+    "SMQ040": 4576,
+    "cvd_history": 0
+  }
+}

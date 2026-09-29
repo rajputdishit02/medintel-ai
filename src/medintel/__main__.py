@@ -1,6 +1,7 @@
 """Offline entry point: python -m medintel sources."""
 
 import argparse
+from pathlib import Path
 
 from medintel import __version__
 from medintel.catalog import COMPONENTS, CYCLE
@@ -9,13 +10,31 @@ from medintel.catalog import COMPONENTS, CYCLE
 def main() -> None:
     parser = argparse.ArgumentParser(description="MedIntel AI research foundation")
     parser.add_argument("--version", action="version", version=__version__)
-    parser.add_argument("command", choices=["sources"])
+    parser.add_argument("command", choices=["sources", "acquire", "verify-data", "build-cohort"])
+    parser.add_argument("--data-dir", type=Path, default=Path("data"))
+    parser.add_argument("--overwrite", action="store_true")
     args = parser.parse_args()
     if args.command == "sources":
         print(f"Proposed NHANES sources: {CYCLE}")
         for component in COMPONENTS:
             print(f"{component.code}: {component.description}")
             print(f"  {component.documentation_url}")
+    elif args.command == "acquire":
+        from medintel.acquisition import acquire_snapshot
+
+        manifest = acquire_snapshot(args.data_dir, overwrite=args.overwrite)
+        print(f"Wrote verified source manifest: {manifest}")
+    elif args.command == "verify-data":
+        from medintel.acquisition import verify_snapshot
+
+        count = verify_snapshot(args.data_dir)
+        print(f"Verified {count} local source files against the manifest")
+    elif args.command == "build-cohort":
+        from medintel.cohort import write_cohort
+
+        cohort, summary = write_cohort(args.data_dir)
+        print(f"Wrote local cohort: {cohort}")
+        print(f"Wrote aggregate audit: {summary}")
 
 
 if __name__ == "__main__":

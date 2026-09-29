@@ -1,0 +1,106 @@
+{
+  "dataset": "CDC NHANES",
+  "cycle": "August 2021-August 2023",
+  "created_at_utc": "2026-09-29T03:29:42.906159+00:00",
+  "components": [
+    {
+      "component": "DEMO_L",
+      "description": "Demographics and sample weights",
+      "source_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DEMO_L.xpt",
+      "documentation_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DEMO_L.htm",
+      "retrieved_at_utc": "2026-09-29T03:29:38.384346+00:00",
+      "bytes": 2582160,
+      "sha256": "ca4374a158b493b8b0163e1388da21d57a18d1b9cecff2aa4e2fa2bec494fe23",
+      "rows": 11933,
+      "columns": 27
+    },
+    {
+      "component": "BPXO_L",
+      "description": "Oscillometric blood pressure",
+      "source_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/BPXO_L.xpt",
+      "documentation_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/BPXO_L.htm",
+      "retrieved_at_utc": "2026-09-29T03:29:39.316618+00:00",
+      "bytes": 696720,
+      "sha256": "189aa9bed689d2c69cf8d780b01de85073276fea5694dd52cdf696229f9054a6",
+      "rows": 7801,
+      "columns": 12
+    },
+    {
+      "component": "BMX_L",
+      "description": "Body measures",
+      "source_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/BMX_L.xpt",
+      "documentation_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/BMX_L.htm",
+      "retrieved_at_utc": "2026-09-29T03:29:39.981211+00:00",
+      "bytes": 1563200,
+      "sha256": "44440c416d9ad709e8b1708a5975378ab4d5b18edc39eb5015c2ae7186500170",
+      "rows": 8860,
+      "columns": 22
+    },
+    {
+      "component": "TCHOL_L",
+      "description": "Total cholesterol",
+      "source_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/TCHOL_L.xpt",
+      "documentation_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/TCHOL_L.htm",
+      "retrieved_at_utc": "2026-09-29T03:29:40.308630+00:00",
+      "bytes": 259520,
+      "sha256": "5c3312e555bb0706fd97cbd63fcbc9e78f00bda8d2d149732d9dd368169b25d3",
+      "rows": 8068,
+      "columns": 4
+    },
+    {
+      "component": "HDL_L",
+      "description": "HDL cholesterol",
+      "source_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/HDL_L.xpt",
+      "documentation_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/HDL_L.htm",
+      "retrieved_at_utc": "2026-09-29T03:29:40.663781+00:00",
+      "bytes": 259520,
+      "sha256": "c1bb43df5ca366f470b411c043f4aee7ae6552a7f4bca1178bc87b24fb9a7300",
+      "rows": 8068,
+      "columns": 4
+    },
+    {
+      "component": "GHB_L",
+      "description": "Glycohemoglobin",
+      "source_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/GHB_L.xpt",
+      "documentation_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/GHB_L.htm",
+      "retrieved_at_utc": "2026-09-29T03:29:41.019330+00:00",
+      "bytes": 174000,
+      "sha256": "67aee0353160e2392dc0a33bece99b90764a630c76d82415ac4639105ad9dd03",
+      "rows": 7199,
+      "columns": 3
+    },
+    {
+      "component": "BPQ_L",
+      "description": "Blood pressure and cholesterol questionnaire",
+      "source_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/BPQ_L.xpt",
+      "documentation_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/BPQ_L.htm",
+      "retrieved_at_utc": "2026-09-29T03:29:41.573397+00:00",
+      "bytes": 409680,
+      "sha256": "0acde3af0526c375942fe0735e3bf69a0422bcbc606f98a478209d2f47baa4b5",
+      "rows": 8501,
+      "columns": 6
+    },
+    {
+      "component": "MCQ_L",
+      "description": "Medical conditions and reported disease history",
+      "source_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/MCQ_L.xpt",
+      "documentation_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/MCQ_L.htm",
+      "retrieved_at_utc": "2026-09-29T03:29:42.219826+00:00",
+      "bytes": 3294000,
+      "sha256": "0889bb3eaa5adedf1a11c4af2d4776fc4c4c3cfdeea24fcedb77c4636b478f61",
+      "rows": 11744,
+      "columns": 35
+    },
+    {
+      "component": "SMQ_L",
+      "description": "Cigarette use",
+      "source_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/SMQ_L.xpt",
+      "documentation_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/SMQ_L.htm",
+      "retrieved_at_utc": "2026-09-29T03:29:42.904079+00:00",
+      "bytes": 651120,
+      "sha256": "abbefebfa5585b1e19c079fa14be20c113a4649318070197214b258d05b93c50",
+      "rows": 9015,
+      "columns": 9
+    }
+  ]
+}

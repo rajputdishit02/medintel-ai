@@ -15,6 +15,9 @@ htmlcov/
 !.env.example
 data/*
 !data/README.md
+!data/metadata/
+!data/metadata/*.json
+!data/metadata/*.csv
 *.xpt
 *.parquet
 *.pkl

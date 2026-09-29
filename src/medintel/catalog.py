@@ -15,6 +15,10 @@ class Component:
     def documentation_url(self) -> str:
         return f"{BASE_URL}/{self.code}.htm"
 
+    @property
+    def data_url(self) -> str:
+        return f"{BASE_URL}/{self.code}.xpt"
+
 
 COMPONENTS = (
     Component("DEMO_L", "Demographics and sample weights"),

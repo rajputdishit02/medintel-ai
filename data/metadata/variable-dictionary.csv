@@ -1,0 +1,23 @@
+variable,unit_or_type,description
+SEQN,identifier,NHANES respondent sequence number
+RIDAGEYR,years,Age at screening
+RIAGENDR,code,Reported sex code; retain CDC coding
+RIDRETH3,code,Race and Hispanic origin code; retain CDC coding
+WTMEC2YR,weight,Two-year MEC examination sample weight
+SDMVSTRA,code,Masked variance pseudo-stratum
+SDMVPSU,code,Masked variance pseudo-PSU
+INDFMPIR,ratio,Family income-to-poverty ratio
+mean_systolic_bp,mmHg,Mean of available BPXOSY1-3 readings
+mean_diastolic_bp,mmHg,Mean of available BPXODI1-3 readings
+BMXBMI,kg/m2,Body mass index
+BMXWAIST,cm,Waist circumference
+LBXTC,mg/dL,Total cholesterol
+LBDHDD,mg/dL,HDL cholesterol
+LBXGH,percent,Glycohemoglobin HbA1c
+BPQ020,code,Ever told had high blood pressure
+BPQ150,code,Currently taking prescribed hypertension medication
+BPQ080,code,Ever told blood cholesterol was high
+BPQ101D,code,Currently taking prescribed cholesterol medication
+SMQ020,code,Smoked at least 100 cigarettes in life
+SMQ040,code,Current smoking frequency
+cvd_history,category,"Reported CVD history: positive, negative, or unknown"

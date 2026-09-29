@@ -3,7 +3,7 @@
 
 A research portfolio project exploring cardiovascular health through real clinical survey data, transparent statistical analysis, and reproducible machine learning.
 
-**Status: V0.1 foundation.** Repository structure, an offline source catalogue, and a research protocol are available. Data ingestion, analyses, models, and applications are planned; no performance results are claimed.
+**Status: V0.2 data foundation in progress.** The repository now includes verified acquisition, a checksum manifest, and reproducible adult-cohort construction. Statistical analyses, models, and applications remain planned; no performance results are claimed.
 
 ## Research direction
 
@@ -32,10 +32,13 @@ python -m venv .venv
 python -m pip install -e .
 python -m medintel --version
 python -m medintel sources
+python -m medintel acquire --data-dir data
+python -m medintel verify-data --data-dir data
+python -m medintel build-cohort --data-dir data
 python -m unittest discover -s tests -v
 ```
 
-The `sources` command prints the proposed NHANES components and official codebook links. It is offline and does not download data. The foundation has no third-party runtime dependencies. Add analysis dependencies when ingestion is implemented; the current environment is not a frozen analysis environment.
+The `sources` command is offline. `acquire` downloads nine official XPT files, validates their participant keys, and records checksums and provenance. `build-cohort` creates a local participant-level CSV plus committed aggregate metadata. Raw and processed participant data remain ignored by Git.
 
 ## Repository map
 
@@ -59,8 +62,8 @@ Each future data acquisition must record source URL, retrieval time, byte count,
 
 | Milestone | Deliverable | State |
 | --- | --- | --- |
-| V0.1 | Repository, source catalogue, protocol, foundation checks | Implemented |
-| V0.2 | Verified ingestion, cohort flow, EDA and statistics | Planned |
+| V0.1 | Repository, source catalogue, protocol, foundation checks | Complete |
+| V0.2 | Verified ingestion, cohort flow, EDA and statistics | In progress: ingestion and cohort complete |
 | V0.3 | Target definition, leakage audit, baseline ML | Planned |
 | V0.4 | Advanced model comparison and tuning | Planned |
 | V0.5 | Calibration, thresholds, SHAP and subgroup analysis | Planned |
