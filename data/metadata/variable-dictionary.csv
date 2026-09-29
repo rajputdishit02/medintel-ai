@@ -7,6 +7,8 @@ WTMEC2YR,weight,Two-year MEC examination sample weight
 SDMVSTRA,code,Masked variance pseudo-stratum
 SDMVPSU,code,Masked variance pseudo-PSU
 INDFMPIR,ratio,Family income-to-poverty ratio
+RIDEXPRG,code,Pregnancy status at examination; applicable subset only
+WTPH2YR,weight,Two-year phlebotomy sample weight
 mean_systolic_bp,mmHg,Mean of available BPXOSY1-3 readings
 mean_diastolic_bp,mmHg,Mean of available BPXODI1-3 readings
 BMXBMI,kg/m2,Body mass index

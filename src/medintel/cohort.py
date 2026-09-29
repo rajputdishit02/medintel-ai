@@ -12,7 +12,7 @@ COMPONENT_COLUMNS = {
     "BMX_L": ["BMXBMI", "BMXWAIST"],
     "TCHOL_L": ["LBXTC"],
     "HDL_L": ["LBDHDD"],
-    "GHB_L": ["LBXGH"],
+    "GHB_L": ["WTPH2YR", "LBXGH"],
     "BPQ_L": ["BPQ020", "BPQ150", "BPQ080", "BPQ101D"],
     "MCQ_L": ["MCQ160B", "MCQ160C", "MCQ160D", "MCQ160E", "MCQ160F"],
     "SMQ_L": ["SMQ020", "SMQ040"],
@@ -27,6 +27,8 @@ OUTPUT_VARIABLES = {
     "SDMVSTRA": ("code", "Masked variance pseudo-stratum"),
     "SDMVPSU": ("code", "Masked variance pseudo-PSU"),
     "INDFMPIR": ("ratio", "Family income-to-poverty ratio"),
+    "RIDEXPRG": ("code", "Pregnancy status at examination; applicable subset only"),
+    "WTPH2YR": ("weight", "Two-year phlebotomy sample weight"),
     "mean_systolic_bp": ("mmHg", "Mean of available BPXOSY1-3 readings"),
     "mean_diastolic_bp": ("mmHg", "Mean of available BPXODI1-3 readings"),
     "BMXBMI": ("kg/m2", "Body mass index"),
@@ -71,7 +73,7 @@ def build_cohort(raw_dir: Path) -> tuple[pd.DataFrame, dict[str, object]]:
     demographics = pd.read_sas(raw_dir / "DEMO_L.xpt", format="xport")
     demographic_columns = [
         "SEQN", "RIDAGEYR", "RIAGENDR", "RIDRETH3", "WTMEC2YR",
-        "SDMVSTRA", "SDMVPSU", "INDFMPIR",
+        "SDMVSTRA", "SDMVPSU", "INDFMPIR", "RIDEXPRG",
     ]
     missing = sorted(set(demographic_columns) - set(demographics.columns))
     if missing:

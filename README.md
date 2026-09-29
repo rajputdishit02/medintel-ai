@@ -3,7 +3,7 @@
 
 A research portfolio project exploring cardiovascular health through real clinical survey data, transparent statistical analysis, and reproducible machine learning.
 
-**Status: V0.2 data foundation in progress.** The repository now includes verified acquisition, a checksum manifest, and reproducible adult-cohort construction. Statistical analyses, models, and applications remain planned; no performance results are claimed.
+**Status: V0.2 complete.** The repository includes verified acquisition, a checksum manifest, reproducible adult-cohort construction, and survey-aware cardiovascular risk-factor estimates. Predictive models and applications remain planned; no model-performance results are claimed.
 
 ## Research direction
 
@@ -35,6 +35,7 @@ python -m medintel sources
 python -m medintel acquire --data-dir data
 python -m medintel verify-data --data-dir data
 python -m medintel build-cohort --data-dir data
+python -m medintel eda --data-dir data
 python -m unittest discover -s tests -v
 ```
 
@@ -58,12 +59,18 @@ The source is [CDC's August 2021–August 2023 catalogue](https://wwwn.cdc.gov/n
 
 Each future data acquisition must record source URL, retrieval time, byte count, SHA-256, and codebook revision. Retain original XPT files locally; derive versioned analysis tables through code. Population estimates will require appropriate survey weights and design-aware uncertainty. Ordinary unweighted summaries will be labelled as sample descriptions.
 
+## Validated V0.2 result
+
+The complete-measurement analysis contains 5,249 adults after excluding pregnant participants. It reproduces the published [NCHS Data Brief 540](https://www.cdc.gov/nchs/products/databriefs/db540.htm) benchmark: 36.4% had no defined cardiovascular risk factors, 34.9% had one, and 28.7% had two or more. Sex- and age-stratified estimates and Taylor-linearized standard errors also match the published tables.
+
+See the [EDA report](reports/v0.2-eda.md) and [complete prevalence table](reports/tables/cvd-risk-factor-prevalence.csv). This is a reproducibility benchmark using cross-sectional population estimates, not a diagnostic or predictive result.
+
 ## Roadmap
 
 | Milestone | Deliverable | State |
 | --- | --- | --- |
 | V0.1 | Repository, source catalogue, protocol, foundation checks | Complete |
-| V0.2 | Verified ingestion, cohort flow, EDA and statistics | In progress: ingestion and cohort complete |
+| V0.2 | Verified ingestion, cohort flow, EDA and statistics | Complete |
 | V0.3 | Target definition, leakage audit, baseline ML | Planned |
 | V0.4 | Advanced model comparison and tuning | Planned |
 | V0.5 | Calibration, thresholds, SHAP and subgroup analysis | Planned |

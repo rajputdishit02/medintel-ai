@@ -1,0 +1,8 @@
+{
+  "analysis_sample_n": 5249,
+  "adult_pregnant_n": 41,
+  "complete_pregnant_excluded_n": 34,
+  "definition_source": "https://www.cdc.gov/nchs/products/databriefs/db540.htm",
+  "weight": "WTPH2YR",
+  "variance_method": "Taylor linearization with masked strata and PSUs"
+}

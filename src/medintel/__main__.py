@@ -10,7 +10,7 @@ from medintel.catalog import COMPONENTS, CYCLE
 def main() -> None:
     parser = argparse.ArgumentParser(description="MedIntel AI research foundation")
     parser.add_argument("--version", action="version", version=__version__)
-    parser.add_argument("command", choices=["sources", "acquire", "verify-data", "build-cohort"])
+    parser.add_argument("command", choices=["sources", "acquire", "verify-data", "build-cohort", "eda"])
     parser.add_argument("--data-dir", type=Path, default=Path("data"))
     parser.add_argument("--overwrite", action="store_true")
     args = parser.parse_args()
@@ -35,6 +35,12 @@ def main() -> None:
         cohort, summary = write_cohort(args.data_dir)
         print(f"Wrote local cohort: {cohort}")
         print(f"Wrote aggregate audit: {summary}")
+    elif args.command == "eda":
+        from medintel.analysis import write_eda
+
+        report, table = write_eda(args.data_dir, Path("reports"))
+        print(f"Wrote EDA report: {report}")
+        print(f"Wrote prevalence table: {table}")
 
 
 if __name__ == "__main__":
