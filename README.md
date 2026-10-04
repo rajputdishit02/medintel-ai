@@ -3,7 +3,7 @@
 
 A research portfolio project exploring cardiovascular health through real clinical survey data, transparent statistical analysis, and reproducible machine learning.
 
-**Status: V0.7 research assistant complete.** The repository includes verified acquisition, survey-aware cardiovascular estimates, leakage-audited modelling and interpretation, a versioned FastAPI research contract, and citation-grounded PubMed retrieval. The user interface remains planned.
+**Status: V0.8 research interface complete.** The repository includes verified acquisition, survey-aware cardiovascular estimates, leakage-audited modelling and interpretation, a versioned FastAPI research contract, citation-grounded PubMed retrieval, and a tested Streamlit interface.
 
 ## Research direction
 
@@ -43,6 +43,7 @@ python -m medintel literature-acquire --data-dir data
 python -m medintel literature-ask --data-dir data --offline --question "Why does calibration matter?"
 python -m unittest discover -s tests -v
 medintel-api
+medintel-app
 ```
 
 The `sources` command is offline. `acquire` downloads nine official XPT files, validates their participant keys, and records checksums and provenance. `build-cohort` creates a local participant-level CSV plus committed aggregate metadata. Raw and processed participant data remain ignored by Git.
@@ -95,6 +96,12 @@ FastAPI exposes health, model-metadata, and prediction endpoints under a strict 
 
 See the [API contract and example](docs/api.md). The local server binds to `127.0.0.1:8000` and provides interactive documentation at `/docs`.
 
+## V0.7–V0.8 research assistant and interface
+
+The local research assistant retrieves PubMed abstracts and returns numbered evidence links. OpenAI synthesis is optional; missing or unavailable API access falls back to cited extracts, while unrelated questions are declined. See the [research assistant design and evaluation](docs/research-assistant.md).
+
+`medintel-app` launches the Streamlit portfolio interface with the published results, guarded model explorer, research assistant, and methods page. Participant-level data and the trained model remain local.
+
 ## Roadmap
 
 | Milestone | Deliverable | State |
@@ -106,7 +113,7 @@ See the [API contract and example](docs/api.md). The local server binds to `127.
 | V0.5 | Calibration, thresholds, SHAP and subgroup analysis | Complete |
 | V0.6 | FastAPI inference contract | Complete |
 | V0.7 | Medical literature RAG with citation evaluation | Complete |
-| V0.8 | Streamlit research interface | Planned |
+| V0.8 | Streamlit research interface | Complete |
 | V0.9 | Integration tests, Docker and release checks | Planned |
 | V1.0 | Documented portfolio release and deployment | Planned |
 
