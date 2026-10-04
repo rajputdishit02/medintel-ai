@@ -3,7 +3,7 @@
 
 A research portfolio project exploring cardiovascular health through real clinical survey data, transparent statistical analysis, and reproducible machine learning.
 
-**Status: V0.5 interpretation complete.** The repository includes verified acquisition, survey-aware cardiovascular estimates, leakage-audited modelling, training-only calibration and threshold selection, subgroup audits, and SHAP explanations. API and application layers remain planned.
+**Status: V0.6 API complete.** The repository includes verified acquisition, survey-aware cardiovascular estimates, leakage-audited modelling and interpretation, plus a versioned FastAPI research contract. Literature retrieval and the user interface remain planned.
 
 ## Research direction
 
@@ -40,6 +40,7 @@ python -m medintel baseline --data-dir data
 python -m medintel compare-models --data-dir data
 python -m medintel interpret --data-dir data
 python -m unittest discover -s tests -v
+medintel-api
 ```
 
 The `sources` command is offline. `acquire` downloads nine official XPT files, validates their participant keys, and records checksums and provenance. `build-cohort` creates a local participant-level CSV plus committed aggregate metadata. Raw and processed participant data remain ignored by Git.
@@ -86,6 +87,12 @@ Training-only selection chose sigmoid calibration by a small Brier-score advanta
 
 The subgroup audit found a material limitation in adults aged 20–39: only 12 positive test cases, ROC AUC 0.485, and zero sensitivity at the exploratory threshold. See the [interpretation report](reports/v0.5-interpretation.md), [model card](docs/model-card.md), and generated [calibration](reports/figures/v0.5-calibration.png) and [SHAP](reports/figures/v0.5-shap-importance.png) figures.
 
+## V0.6 research API
+
+FastAPI exposes health, model-metadata, and prediction endpoints under a strict schema. Inputs have clinical range and relationship checks; extra fields are rejected. Responses describe association with self-reported history and carry an explicit research-only warning. When the ignored local model artifact is absent, health reports a degraded state and prediction returns HTTP 503.
+
+See the [API contract and example](docs/api.md). The local server binds to `127.0.0.1:8000` and provides interactive documentation at `/docs`.
+
 ## Roadmap
 
 | Milestone | Deliverable | State |
@@ -95,7 +102,7 @@ The subgroup audit found a material limitation in adults aged 20–39: only 12 p
 | V0.3 | Target definition, leakage audit, baseline ML | Complete |
 | V0.4 | Advanced model comparison and tuning | Complete |
 | V0.5 | Calibration, thresholds, SHAP and subgroup analysis | Complete |
-| V0.6 | FastAPI inference contract | Planned |
+| V0.6 | FastAPI inference contract | Complete |
 | V0.7 | Medical literature RAG with citation evaluation | Planned |
 | V0.8 | Streamlit research interface | Planned |
 | V0.9 | Integration tests, Docker and release checks | Planned |
