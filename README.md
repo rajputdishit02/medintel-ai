@@ -9,6 +9,8 @@ A research portfolio project exploring cardiovascular health through real clinic
 
 **[Open the live Streamlit demo](https://medintel-cvd-research.streamlit.app/)**
 
+For a recruiter-friendly overview, results, and interview narrative, read the [portfolio case study](docs/portfolio-case-study.md).
+
 **Status: V1.0 portfolio release.** The repository includes verified acquisition, survey-aware cardiovascular estimates, leakage-audited modelling and interpretation, a versioned FastAPI research contract, citation-grounded PubMed retrieval, a tested Streamlit interface, CI, and container packaging.
 
 ## Architecture
