@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using this metadata."
+title: "MedIntel AI: Explainable Clinical Analytics and Medical Research Intelligence"
+version: 1.0.0
+date-released: 2026-10-04
+authors:
+  - family-names: Rajput
+    given-names: Dishit
+repository-code: "https://github.com/rajputdishit02/medintel-ai"
+license: MIT

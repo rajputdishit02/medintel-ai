@@ -1,9 +1,29 @@
 # MedIntel AI
 ### Explainable Clinical Analytics & Medical Research Intelligence
 
+[![CI](https://github.com/rajputdishit02/medintel-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/rajputdishit02/medintel-ai/actions/workflows/ci.yml)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-167D75)](LICENSE)
+
 A research portfolio project exploring cardiovascular health through real clinical survey data, transparent statistical analysis, and reproducible machine learning.
 
-**Status: V0.9 release candidate.** The repository includes verified acquisition, survey-aware cardiovascular estimates, leakage-audited modelling and interpretation, a versioned FastAPI research contract, citation-grounded PubMed retrieval, a tested Streamlit interface, CI, and container packaging.
+**Status: V1.0 portfolio release.** The repository includes verified acquisition, survey-aware cardiovascular estimates, leakage-audited modelling and interpretation, a versioned FastAPI research contract, citation-grounded PubMed retrieval, a tested Streamlit interface, CI, and container packaging.
+
+## Architecture
+
+```mermaid
+flowchart LR
+    A[CDC NHANES XPT files] --> B[Verified acquisition]
+    B --> C[Cohort and survey analysis]
+    C --> D[Model training and evaluation]
+    D --> E[Calibration, SHAP, subgroup audit]
+    E --> F[FastAPI contract]
+    E --> G[Streamlit interface]
+    H[PubMed abstracts] --> I[Local TF-IDF retrieval]
+    I --> J[Citation validation and abstention]
+    J --> G
+    J -. optional synthesis .-> K[OpenAI Responses API]
+```
 
 ## Research direction
 
@@ -115,7 +135,7 @@ The local research assistant retrieves PubMed abstracts and returns numbered evi
 | V0.7 | Medical literature RAG with citation evaluation | Complete |
 | V0.8 | Streamlit research interface | Complete |
 | V0.9 | Integration tests, Docker and release checks | Complete |
-| V1.0 | Documented portfolio release and deployment | Planned |
+| V1.0 | Documented portfolio release and deployment | Complete |
 
 See [acceptance criteria](docs/roadmap.md). Later technologies are intentions, not current capabilities. The research assistant will be evaluated separately from the statistical models.
 
@@ -134,4 +154,4 @@ Self-reported history, missing measurements, survey nonresponse, and treatment a
 - [Medical conditions documentation](https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/MCQ_L.htm)
 - [NHANES analytic tutorials](https://wwwn.cdc.gov/nchs/nhanes/tutorials/default.aspx)
 
-Sources reviewed September 29, 2026. CDC/NCHS is the data provider and does not endorse this project. No open-source licence has been selected yet; public visibility alone does not grant reuse rights. Any future code licence will be separate from the source data's terms.
+Sources reviewed September 29, 2026. CDC/NCHS is the data provider and does not endorse this project. Project source code is available under the [MIT License](LICENSE); source data remains subject to its provider's terms.
