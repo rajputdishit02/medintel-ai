@@ -3,7 +3,7 @@
 
 A research portfolio project exploring cardiovascular health through real clinical survey data, transparent statistical analysis, and reproducible machine learning.
 
-**Status: V0.8 research interface complete.** The repository includes verified acquisition, survey-aware cardiovascular estimates, leakage-audited modelling and interpretation, a versioned FastAPI research contract, citation-grounded PubMed retrieval, and a tested Streamlit interface.
+**Status: V0.9 release candidate.** The repository includes verified acquisition, survey-aware cardiovascular estimates, leakage-audited modelling and interpretation, a versioned FastAPI research contract, citation-grounded PubMed retrieval, a tested Streamlit interface, CI, and container packaging.
 
 ## Research direction
 
@@ -114,7 +114,7 @@ The local research assistant retrieves PubMed abstracts and returns numbered evi
 | V0.6 | FastAPI inference contract | Complete |
 | V0.7 | Medical literature RAG with citation evaluation | Complete |
 | V0.8 | Streamlit research interface | Complete |
-| V0.9 | Integration tests, Docker and release checks | Planned |
+| V0.9 | Integration tests, Docker and release checks | Complete |
 | V1.0 | Documented portfolio release and deployment | Planned |
 
 See [acceptance criteria](docs/roadmap.md). Later technologies are intentions, not current capabilities. The research assistant will be evaluated separately from the statistical models.
