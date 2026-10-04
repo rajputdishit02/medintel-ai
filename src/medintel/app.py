@@ -11,7 +11,7 @@ import pandas as pd
 import streamlit as st
 
 from medintel.api import ClinicalFeatures, ModelRuntime
-from medintel.literature import answer_question
+from medintel.literature import acquire_pubmed, answer_question
 
 ROOT = Path(__file__).resolve().parents[2]
 METRICS = ROOT / "reports" / "metrics" / "v0.5-interpretation.json"
@@ -115,18 +115,17 @@ def risk_explorer() -> None:
 def research_assistant() -> None:
     st.title("Medical research assistant")
     st.write("Ask about cardiovascular modelling, calibration, explainability, or risk factors.")
-    if not CORPUS.exists():
-        st.warning(
-            "The local PubMed corpus is unavailable. Run `python -m medintel literature-acquire --data-dir data`.",
-            icon=":material/library_books:",
-        )
-        return
     question = st.chat_input("Ask a research question")
     if question:
         with st.chat_message("user"):
             st.write(question)
         with st.chat_message("assistant"):
             with st.spinner("Retrieving PubMed evidence…"):
+                if not CORPUS.exists():
+                    acquire_pubmed(
+                        CORPUS,
+                        ROOT / "data" / "metadata" / "literature-summary.json",
+                    )
                 result = answer_question(question, CORPUS)
             st.markdown(result["answer"])
             st.caption(f"Answer mode: {result['mode'].replace('_', ' ')}")
