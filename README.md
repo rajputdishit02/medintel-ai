@@ -7,6 +7,8 @@
 
 A research portfolio project exploring cardiovascular health through real clinical survey data, transparent statistical analysis, and reproducible machine learning.
 
+**[Open the live Streamlit demo](https://medintel-cvd-research.streamlit.app/)**
+
 **Status: V1.0 portfolio release.** The repository includes verified acquisition, survey-aware cardiovascular estimates, leakage-audited modelling and interpretation, a versioned FastAPI research contract, citation-grounded PubMed retrieval, a tested Streamlit interface, CI, and container packaging.
 
 ## Architecture

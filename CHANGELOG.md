@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.2 — 2026-10-04
+
+- Added the public Streamlit deployment and on-demand PubMed corpus acquisition.
+- Declared the source package for Streamlit Community Cloud's Poetry installer.
+- Kept participant-level data, credentials, and the trained clinical model out of the public deployment.
+
 ## 1.0.0 — 2026-10-04
 
 - Integrated and verified nine NHANES 2021–2023 source components.
