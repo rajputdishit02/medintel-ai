@@ -1,6 +1,7 @@
 """Offline entry point: python -m medintel sources."""
 
 import argparse
+import json
 from pathlib import Path
 
 from medintel import __version__
@@ -10,9 +11,15 @@ from medintel.catalog import COMPONENTS, CYCLE
 def main() -> None:
     parser = argparse.ArgumentParser(description="MedIntel AI research foundation")
     parser.add_argument("--version", action="version", version=__version__)
-    parser.add_argument("command", choices=["sources", "acquire", "verify-data", "build-cohort", "eda", "baseline", "compare-models", "interpret"])
+    parser.add_argument("command", choices=[
+        "sources", "acquire", "verify-data", "build-cohort", "eda",
+        "baseline", "compare-models", "interpret", "literature-acquire",
+        "literature-ask",
+    ])
     parser.add_argument("--data-dir", type=Path, default=Path("data"))
     parser.add_argument("--overwrite", action="store_true")
+    parser.add_argument("--question")
+    parser.add_argument("--offline", action="store_true")
     args = parser.parse_args()
     if args.command == "sources":
         print(f"Proposed NHANES sources: {CYCLE}")
@@ -56,6 +63,21 @@ def main() -> None:
 
         output = run_interpretation(args.data_dir, Path("reports"), Path("models"))
         print(f"Wrote interpretation analysis: {output}")
+    elif args.command == "literature-acquire":
+        from medintel.literature import acquire_pubmed
+
+        corpus = args.data_dir / "literature" / "pubmed-corpus.jsonl"
+        summary = args.data_dir / "metadata" / "literature-summary.json"
+        articles = acquire_pubmed(corpus, summary)
+        print(f"Wrote {len(articles)} PubMed records: {corpus}")
+    elif args.command == "literature-ask":
+        from medintel.literature import answer_question
+
+        if not args.question:
+            parser.error("literature-ask requires --question")
+        corpus = args.data_dir / "literature" / "pubmed-corpus.jsonl"
+        result = answer_question(args.question, corpus, use_openai=not args.offline)
+        print(json.dumps(result, indent=2))
 
 
 if __name__ == "__main__":

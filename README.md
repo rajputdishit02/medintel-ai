@@ -3,7 +3,7 @@
 
 A research portfolio project exploring cardiovascular health through real clinical survey data, transparent statistical analysis, and reproducible machine learning.
 
-**Status: V0.6 API complete.** The repository includes verified acquisition, survey-aware cardiovascular estimates, leakage-audited modelling and interpretation, plus a versioned FastAPI research contract. Literature retrieval and the user interface remain planned.
+**Status: V0.7 research assistant complete.** The repository includes verified acquisition, survey-aware cardiovascular estimates, leakage-audited modelling and interpretation, a versioned FastAPI research contract, and citation-grounded PubMed retrieval. The user interface remains planned.
 
 ## Research direction
 
@@ -39,6 +39,8 @@ python -m medintel eda --data-dir data
 python -m medintel baseline --data-dir data
 python -m medintel compare-models --data-dir data
 python -m medintel interpret --data-dir data
+python -m medintel literature-acquire --data-dir data
+python -m medintel literature-ask --data-dir data --offline --question "Why does calibration matter?"
 python -m unittest discover -s tests -v
 medintel-api
 ```
@@ -103,7 +105,7 @@ See the [API contract and example](docs/api.md). The local server binds to `127.
 | V0.4 | Advanced model comparison and tuning | Complete |
 | V0.5 | Calibration, thresholds, SHAP and subgroup analysis | Complete |
 | V0.6 | FastAPI inference contract | Complete |
-| V0.7 | Medical literature RAG with citation evaluation | Planned |
+| V0.7 | Medical literature RAG with citation evaluation | Complete |
 | V0.8 | Streamlit research interface | Planned |
 | V0.9 | Integration tests, Docker and release checks | Planned |
 | V1.0 | Documented portfolio release and deployment | Planned |

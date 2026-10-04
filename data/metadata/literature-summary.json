@@ -1,0 +1,13 @@
+{
+  "source": "PubMed via NCBI E-utilities",
+  "retrieved_at_utc": "2026-10-04T10:19:50.172597+00:00",
+  "search_queries": {
+    "NHANES cardiovascular risk factors adults": 8,
+    "cardiovascular clinical prediction model calibration": 8,
+    "explainable artificial intelligence cardiovascular medicine": 8,
+    "cardiovascular disease prevention modifiable risk factors": 8
+  },
+  "unique_identifiers_requested": 32,
+  "articles_with_abstracts": 31,
+  "local_corpus": "data\\literature\\pubmed-corpus.jsonl"
+}
