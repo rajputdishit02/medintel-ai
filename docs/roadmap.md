@@ -5,7 +5,7 @@ Build one reviewable milestone at a time. No empty API, UI, RAG, or model implem
 1. **V0.1 — foundation:** installable package, official source catalogue, protocol, README, offline checks, and meaningful Git history.
 2. **V0.2 — data and statistics (complete):** acquisition/provenance, XPT validation, adult cohort, variable dictionary, join audit, missingness counts, and survey-aware descriptive analysis. The implementation reproduces the published NCHS overall, sex, and age estimates and standard errors.
 3. **V0.3 — baseline (complete):** frozen target and leakage decisions, class-prior and logistic baselines, training-only preprocessing, untouched test evaluation, and recorded seeds, versions, data hash, and split hash.
-4. **V0.4 — comparisons:** add a justified tree/boosting model, consistent search budgets, discrimination metrics, uncertainty, and an experiment table. Keep the held-out set untouched by tuning.
+4. **V0.4 — comparisons (complete):** tuned histogram gradient boosting in fixed training folds, compared it fairly with logistic regression, evaluated the frozen test partition once, and quantified paired uncertainty. Logistic regression was retained because boosting showed no reliable improvement.
 5. **V0.5 — interpretation:** assess Brier score, calibration curves, threshold trade-offs, and subgroup behaviour. Fit calibration using training/validation data only. Explain SHAP's dependence on the model and background population; avoid causal claims.
 6. **V0.6 — API:** expose a validated, versioned research inference contract through FastAPI with contract tests and documented model limitations.
 7. **V0.7 — research intelligence:** build a separate literature retrieval workflow with source metadata, grounded citations, abstention, retrieval evaluation, and answer-quality checks. Decide corpus, access terms, provider, and budget before integration.
@@ -13,4 +13,4 @@ Build one reviewable milestone at a time. No empty API, UI, RAG, or model implem
 9. **V0.9 — operations:** integration tests, Docker, reproducible environments, and deployment checks. Unit tests grow with each earlier milestone.
 10. **V1.0 — release:** publish reproducible findings, a model card, a data card, setup instructions, and a demonstrable portfolio walkthrough.
 
-Next work: define a fair model-comparison protocol, add one justified nonlinear model, and quantify metric uncertainty for V0.4 without revisiting the held-out test set during tuning.
+Next work: calibrate the retained logistic model using training data only, evaluate threshold trade-offs and subgroup behaviour, and add model-dependent explanations for V0.5.

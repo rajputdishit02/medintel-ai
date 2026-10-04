@@ -1,0 +1,111 @@
+{
+  "selection_rule": "highest mean training-fold average precision",
+  "cross_validation": {
+    "folds": 5,
+    "splitter": "stratified shuffled folds",
+    "seed": 417,
+    "logistic_regression": {
+      "roc_auc": {
+        "mean": 0.8247128296223858,
+        "standard_deviation": 0.011598184742813789
+      },
+      "average_precision": {
+        "mean": 0.3971735665265214,
+        "standard_deviation": 0.04425773386839163
+      }
+    },
+    "hist_gradient_boosting": {
+      "roc_auc": {
+        "mean": 0.8297072619936234,
+        "standard_deviation": 0.007455828911156521
+      },
+      "average_precision": {
+        "mean": 0.40901965031139875,
+        "standard_deviation": 0.021658382997799187
+      }
+    },
+    "search_candidates": 16,
+    "best_parameters": {
+      "model__min_samples_leaf": 20,
+      "model__max_leaf_nodes": 7,
+      "model__max_iter": 100,
+      "model__learning_rate": 0.03,
+      "model__l2_regularization": 5.0
+    }
+  },
+  "frozen_test": {
+    "logistic_regression": {
+      "roc_auc": 0.7929030123471644,
+      "average_precision": 0.3911059908138934,
+      "brier_score": 0.09292055871662942,
+      "log_loss": 0.31684625878802697,
+      "sensitivity_at_0_5": 0.14285714285714285,
+      "specificity_at_0_5": 0.9859985261606485,
+      "true_negative": 1338,
+      "false_positive": 19,
+      "false_negative": 168,
+      "true_positive": 28
+    },
+    "hist_gradient_boosting": {
+      "roc_auc": 0.7915006090866707,
+      "average_precision": 0.3547670218994873,
+      "brier_score": 0.09477048717998046,
+      "log_loss": 0.3154970186482134,
+      "sensitivity_at_0_5": 0.061224489795918366,
+      "specificity_at_0_5": 0.9926308032424466,
+      "true_negative": 1347,
+      "false_positive": 10,
+      "false_negative": 184,
+      "true_positive": 12
+    }
+  },
+  "bootstrap": {
+    "repetitions": 1000,
+    "seed": 418,
+    "interval_type": "paired percentile 95%",
+    "intervals": {
+      "roc_auc": {
+        "logistic": [
+          0.7613029298236238,
+          0.8278192775356014
+        ],
+        "boosted": [
+          0.7614236798176875,
+          0.8238344406193048
+        ],
+        "delta_boosted_minus_logistic": [
+          -0.014555163760005086,
+          0.0114202944815372
+        ]
+      },
+      "average_precision": {
+        "logistic": [
+          0.3281088375208506,
+          0.46816177761887273
+        ],
+        "boosted": [
+          0.29831672095266815,
+          0.43111611872191713
+        ],
+        "delta_boosted_minus_logistic": [
+          -0.07862877948928092,
+          0.006162291310635677
+        ]
+      },
+      "brier_score": {
+        "logistic": [
+          0.08287535029769491,
+          0.10307660626695171
+        ],
+        "boosted": [
+          0.08482779420395163,
+          0.10471846962651593
+        ],
+        "delta_boosted_minus_logistic": [
+          -0.0004860605231829722,
+          0.004401088702175654
+        ]
+      }
+    }
+  }
+}

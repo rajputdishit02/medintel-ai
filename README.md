@@ -3,7 +3,7 @@
 
 A research portfolio project exploring cardiovascular health through real clinical survey data, transparent statistical analysis, and reproducible machine learning.
 
-**Status: V0.3 baseline complete.** The repository includes verified acquisition, survey-aware cardiovascular estimates, a frozen modelling contract, and dummy/logistic baselines for reported CVD history. Advanced model comparison and applications remain planned.
+**Status: V0.4 model comparison complete.** The repository includes verified acquisition, survey-aware cardiovascular estimates, leakage-audited baselines, and a training-only nonlinear model search with paired uncertainty estimates. Calibration, explainability, and applications remain planned.
 
 ## Research direction
 
@@ -37,6 +37,7 @@ python -m medintel verify-data --data-dir data
 python -m medintel build-cohort --data-dir data
 python -m medintel eda --data-dir data
 python -m medintel baseline --data-dir data
+python -m medintel compare-models --data-dir data
 python -m unittest discover -s tests -v
 ```
 
@@ -72,6 +73,12 @@ On a fixed held-out test partition, logistic regression reached ROC AUC 0.793 an
 
 Read the [baseline report](reports/v0.3-baseline.md) and [modelling protocol](docs/modeling-protocol.md). The outcome is prevalent self-reported history, so these results do not demonstrate prediction of future cardiovascular events.
 
+## V0.4 model comparison
+
+Histogram gradient boosting was tuned across 16 configurations using five training-only folds. On the frozen test set, it did not improve on logistic regression: ROC AUC was 0.792 versus 0.793, and average precision was 0.355 versus 0.391. Paired bootstrap intervals showed no reliable advantage, so logistic regression remains the preferred model.
+
+See the [model-comparison report](reports/v0.4-model-comparison.md). Retaining the simpler model is a recorded experimental result, not a failed milestone.
+
 ## Roadmap
 
 | Milestone | Deliverable | State |
@@ -79,7 +86,7 @@ Read the [baseline report](reports/v0.3-baseline.md) and [modelling protocol](do
 | V0.1 | Repository, source catalogue, protocol, foundation checks | Complete |
 | V0.2 | Verified ingestion, cohort flow, EDA and statistics | Complete |
 | V0.3 | Target definition, leakage audit, baseline ML | Complete |
-| V0.4 | Advanced model comparison and tuning | Planned |
+| V0.4 | Advanced model comparison and tuning | Complete |
 | V0.5 | Calibration, thresholds, SHAP and subgroup analysis | Planned |
 | V0.6 | FastAPI inference contract | Planned |
 | V0.7 | Medical literature RAG with citation evaluation | Planned |

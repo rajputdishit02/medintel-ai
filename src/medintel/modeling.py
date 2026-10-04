@@ -53,14 +53,16 @@ def prepare_model_frame(cohort: pd.DataFrame) -> tuple[pd.DataFrame, pd.Series, 
     return labelled[FEATURES], target, labelled["SEQN"]
 
 
-def preprocessing() -> ColumnTransformer:
+def preprocessing(*, dense: bool = False) -> ColumnTransformer:
     numeric = Pipeline([
         ("imputer", SimpleImputer(strategy="median", add_indicator=True)),
         ("scaler", StandardScaler()),
     ])
     categorical = Pipeline([
         ("imputer", SimpleImputer(strategy="most_frequent")),
-        ("encoder", OneHotEncoder(handle_unknown="ignore", drop="if_binary")),
+        ("encoder", OneHotEncoder(
+            handle_unknown="ignore", drop="if_binary", sparse_output=not dense,
+        )),
     ])
     return ColumnTransformer([
         ("numeric", numeric, NUMERIC_FEATURES),
