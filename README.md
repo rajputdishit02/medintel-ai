@@ -3,7 +3,7 @@
 
 A research portfolio project exploring cardiovascular health through real clinical survey data, transparent statistical analysis, and reproducible machine learning.
 
-**Status: V0.4 model comparison complete.** The repository includes verified acquisition, survey-aware cardiovascular estimates, leakage-audited baselines, and a training-only nonlinear model search with paired uncertainty estimates. Calibration, explainability, and applications remain planned.
+**Status: V0.5 interpretation complete.** The repository includes verified acquisition, survey-aware cardiovascular estimates, leakage-audited modelling, training-only calibration and threshold selection, subgroup audits, and SHAP explanations. API and application layers remain planned.
 
 ## Research direction
 
@@ -38,6 +38,7 @@ python -m medintel build-cohort --data-dir data
 python -m medintel eda --data-dir data
 python -m medintel baseline --data-dir data
 python -m medintel compare-models --data-dir data
+python -m medintel interpret --data-dir data
 python -m unittest discover -s tests -v
 ```
 
@@ -79,6 +80,12 @@ Histogram gradient boosting was tuned across 16 configurations using five traini
 
 See the [model-comparison report](reports/v0.4-model-comparison.md). Retaining the simpler model is a recorded experimental result, not a failed milestone.
 
+## V0.5 interpretation
+
+Training-only selection chose sigmoid calibration by a small Brier-score advantage. An exploratory threshold targeting 80% training sensitivity produced test sensitivity 0.770 and specificity 0.690. It is an analytical scenario, not a clinical recommendation.
+
+The subgroup audit found a material limitation in adults aged 20–39: only 12 positive test cases, ROC AUC 0.485, and zero sensitivity at the exploratory threshold. See the [interpretation report](reports/v0.5-interpretation.md), [model card](docs/model-card.md), and generated [calibration](reports/figures/v0.5-calibration.png) and [SHAP](reports/figures/v0.5-shap-importance.png) figures.
+
 ## Roadmap
 
 | Milestone | Deliverable | State |
@@ -87,7 +94,7 @@ See the [model-comparison report](reports/v0.4-model-comparison.md). Retaining t
 | V0.2 | Verified ingestion, cohort flow, EDA and statistics | Complete |
 | V0.3 | Target definition, leakage audit, baseline ML | Complete |
 | V0.4 | Advanced model comparison and tuning | Complete |
-| V0.5 | Calibration, thresholds, SHAP and subgroup analysis | Planned |
+| V0.5 | Calibration, thresholds, SHAP and subgroup analysis | Complete |
 | V0.6 | FastAPI inference contract | Planned |
 | V0.7 | Medical literature RAG with citation evaluation | Planned |
 | V0.8 | Streamlit research interface | Planned |

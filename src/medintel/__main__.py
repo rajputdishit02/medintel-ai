@@ -10,7 +10,7 @@ from medintel.catalog import COMPONENTS, CYCLE
 def main() -> None:
     parser = argparse.ArgumentParser(description="MedIntel AI research foundation")
     parser.add_argument("--version", action="version", version=__version__)
-    parser.add_argument("command", choices=["sources", "acquire", "verify-data", "build-cohort", "eda", "baseline", "compare-models"])
+    parser.add_argument("command", choices=["sources", "acquire", "verify-data", "build-cohort", "eda", "baseline", "compare-models", "interpret"])
     parser.add_argument("--data-dir", type=Path, default=Path("data"))
     parser.add_argument("--overwrite", action="store_true")
     args = parser.parse_args()
@@ -51,6 +51,11 @@ def main() -> None:
 
         output = run_comparison(args.data_dir, Path("reports"), Path("models"))
         print(f"Wrote model comparison: {output}")
+    elif args.command == "interpret":
+        from medintel.interpretation import run_interpretation
+
+        output = run_interpretation(args.data_dir, Path("reports"), Path("models"))
+        print(f"Wrote interpretation analysis: {output}")
 
 
 if __name__ == "__main__":

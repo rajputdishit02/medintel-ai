@@ -1,0 +1,45 @@
+{
+  "calibration_selection": {
+    "method": "lowest five-fold out-of-fold training Brier score",
+    "candidates": {
+      "uncalibrated": {
+        "brier_score": 0.09199722352328822,
+        "log_loss": 0.2991059897115805
+      },
+      "sigmoid": {
+        "brier_score": 0.09187786453951483,
+        "log_loss": 0.2990127080538358
+      },
+      "isotonic": {
+        "brier_score": 0.09224311963130043,
+        "log_loss": 0.299759373924105
+      }
+    },
+    "selected": "sigmoid"
+  },
+  "threshold_selection": {
+    "threshold": 0.12146457622970304,
+    "training_sensitivity": 0.8002544529262087,
+    "training_specificity": 0.7004608294930876,
+    "minimum_sensitivity": 0.8
+  },
+  "frozen_test": {
+    "roc_auc": 0.7930045267922938,
+    "average_precision": 0.38970275870044446,
+    "brier_score": 0.09285969558847933,
+    "log_loss": 0.31600485442208265,
+    "unweighted_n": 1553,
+    "positive_n": 196,
+    "sensitivity": 0.7704081632653061,
+    "specificity": 0.6904937361827561,
+    "positive_predictive_value": 0.26444833625218916,
+    "negative_predictive_value": 0.9541751527494908,
+    "true_negative": 937,
+    "false_positive": 420,
+    "false_negative": 45,
+    "true_positive": 151
+  },
+  "subgroup_table": "reports/tables/v0.5-subgroup-performance.csv",
+  "shap_table": "reports/tables/v0.5-shap-importance.csv",
+  "shap_scale": "log odds of the uncalibrated logistic model"
+}
